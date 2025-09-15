@@ -1,4 +1,9 @@
 # 🏥 AI-Powered Health Coach Platform
+<img width="1888" height="892" alt="image" src="https://github.com/user-attachments/assets/59cdfdbd-c311-4d92-86ba-531bfad0b107" />
+<img width="1800" height="872" alt="image" src="https://github.com/user-attachments/assets/58e8fdfb-5c63-43a9-93f9-b44b1cf81126" />
+<img width="1116" height="886" alt="image" src="https://github.com/user-attachments/assets/aea2959c-3578-4f8a-88e9-a77a5d59c16f" />
+<img width="1771" height="830" alt="image" src="https://github.com/user-attachments/assets/a6deef49-4445-44ba-b92b-9af717782ae2" />
+<img width="1361" height="847" alt="image" src="https://github.com/user-attachments/assets/e6764ff1-2ec2-47d0-b4a5-76fbb335d2e4" />
 
 <div align="center">
 
@@ -122,6 +127,7 @@ The **AI-Powered Health Coach Platform** is a cutting-edge healthcare applicatio
 - **LightGBM**: Fast, distributed, high-performance gradient boosting
 - **pandas**: Data manipulation and analysis library
 - **numpy**: Numerical computing library
+
 
 ---
 
