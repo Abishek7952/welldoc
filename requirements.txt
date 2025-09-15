@@ -35,3 +35,7 @@ reportlab
 # Utils
 requests
 pydantic[email]
+
+# AI Integration
+google-generativeai
+cohere
