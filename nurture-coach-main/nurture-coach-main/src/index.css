@@ -1,0 +1,270 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AI Health Coach Design System - Healthcare focused with age-adaptive modes */
+
+@layer base {
+  :root {
+    /* Core Healthcare Color Palette */
+    --background: 210 40% 98%;
+    --foreground: 215 25% 27%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+
+    /* Primary - Trust Blue for healthcare */
+    --primary: 207 90% 54%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 207 90% 84%;
+    --primary-dark: 207 90% 34%;
+
+    /* Secondary - Healing Green */
+    --secondary: 142 76% 36%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 142 76% 66%;
+
+    /* Health Status Colors */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --danger: 0 84% 60%;
+    --danger-foreground: 0 0% 100%;
+
+    /* Gamification Colors */
+    --gold: 45 100% 51%;
+    --silver: 0 0% 75%;
+    --bronze: 30 67% 48%;
+
+    /* Age-Adaptive Colors */
+    --child-primary: 291 64% 42%;
+    --child-accent: 142 69% 58%;
+    --senior-primary: 215 25% 27%;
+    --senior-accent: 142 76% 36%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 215 25% 27%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 207 90% 54%;
+
+    --radius: 0.75rem;
+
+    /* Healthcare Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-health: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--primary-light)));
+    --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(var(--secondary-light)));
+    --gradient-warning: linear-gradient(135deg, hsl(var(--warning)), hsl(45 100% 70%));
+
+    /* Healthcare Shadows */
+    --shadow-card: 0 4px 12px hsl(var(--primary) / 0.1);
+    --shadow-elevated: 0 8px 24px hsl(var(--primary) / 0.15);
+    --shadow-risk-high: 0 4px 12px hsl(var(--danger) / 0.3);
+    --shadow-success: 0 4px 12px hsl(var(--success) / 0.2);
+
+    /* Typography */
+    --font-heading: "Inter", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, sans-serif;
+
+    /* Age-Adaptive Spacing */
+    --spacing-child: 1.2;
+    --spacing-adult: 1;
+    --spacing-senior: 1.4;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 28% 17%;
+    --foreground: 210 40% 98%;
+
+    --card: 215 28% 25%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 215 28% 25%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 207 90% 64%;
+    --primary-foreground: 215 28% 17%;
+    --primary-light: 207 90% 74%;
+    --primary-dark: 207 90% 44%;
+
+    --secondary: 142 76% 46%;
+    --secondary-foreground: 215 28% 17%;
+    --secondary-light: 142 76% 76%;
+
+    --success: 142 76% 46%;
+    --warning: 38 92% 60%;
+    --danger: 0 84% 70%;
+
+    --muted: 215 28% 25%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 215 28% 25%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 70%;
+    --destructive-foreground: 215 28% 17%;
+
+    --border: 215 28% 35%;
+    --input: 215 28% 35%;
+    --ring: 207 90% 64%;
+
+    --shadow-card: 0 4px 12px hsl(215 28% 5% / 0.4);
+    --shadow-elevated: 0 8px 24px hsl(215 28% 5% / 0.6);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  /* Age-Adaptive Mode Classes */
+  .child-mode {
+    --current-spacing: var(--spacing-child);
+    font-size: 1.1em;
+  }
+
+  .child-mode .card {
+    @apply rounded-2xl border-2;
+    transform: scale(var(--spacing-child));
+  }
+
+  .adult-mode {
+    --current-spacing: var(--spacing-adult);
+  }
+
+  .senior-mode {
+    --current-spacing: var(--spacing-senior);
+    font-size: 1.3em;
+  }
+
+  .senior-mode .card {
+    @apply rounded-lg border-2;
+  }
+
+  .senior-mode button {
+    @apply text-lg py-4 px-6;
+  }
+
+  /* Healthcare Component Styles */
+  .health-card {
+    @apply bg-card border border-border rounded-xl shadow-lg;
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s ease;
+  }
+
+  .health-card:hover {
+    box-shadow: var(--shadow-elevated);
+    transform: translateY(-2px);
+  }
+
+  .risk-card-low {
+    @apply bg-gradient-to-br from-green-50 to-green-100 border-green-200;
+  }
+
+  .risk-card-medium {
+    @apply bg-gradient-to-br from-yellow-50 to-yellow-100 border-yellow-200;
+  }
+
+  .risk-card-high {
+    @apply bg-gradient-to-br from-red-50 to-red-100 border-red-200;
+    box-shadow: var(--shadow-risk-high);
+  }
+
+  /* Gamification Styles */
+  .badge-gold {
+    background: var(--gradient-primary);
+    @apply text-white;
+  }
+
+  .badge-silver {
+    @apply bg-gray-300 text-gray-800;
+  }
+
+  .badge-bronze {
+    @apply bg-orange-300 text-orange-800;
+  }
+
+  .confetti-animation {
+    animation: confetti 2s ease-out;
+  }
+
+  @keyframes confetti {
+    0% { transform: scale(0) rotate(0deg); opacity: 0; }
+    50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
+    100% { transform: scale(1) rotate(360deg); opacity: 1; }
+  }
+
+  /* Voice Assistant Widget */
+  .voice-widget {
+    @apply fixed bottom-6 right-6 w-14 h-14 rounded-full shadow-lg z-50;
+    background: var(--gradient-primary);
+  }
+
+  .voice-widget.listening {
+    animation: pulse-glow 1.5s infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.7); }
+    70% { box-shadow: 0 0 0 10px hsl(var(--primary) / 0); }
+  }
+
+  /* Digital Twin Simulator */
+  .simulator-slider {
+    @apply w-full h-2 rounded-lg appearance-none cursor-pointer;
+    background: hsl(var(--muted));
+  }
+
+  .simulator-slider::-webkit-slider-thumb {
+    @apply appearance-none w-5 h-5 rounded-full cursor-pointer;
+    background: var(--gradient-primary);
+  }
+
+  /* SHAP Explanation Bars */
+  .shap-bar {
+    @apply rounded-full transition-all duration-500;
+    background: var(--gradient-health);
+  }
+
+  .shap-bar.negative {
+    background: var(--gradient-warning);
+  }
+}

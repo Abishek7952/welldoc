@@ -1,0 +1,37 @@
+# Backend & API
+fastapi
+uvicorn[standard]
+
+# Database (MongoDB)
+motor
+pymongo
+python-dotenv
+
+# Auth & Security
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
+
+# ML & Data
+pandas
+numpy
+scikit-learn
+xgboost
+lightgbm
+torch         # if using LSTM
+tensorflow    # optional, pick torch or tf
+mlflow
+shap
+
+# Synthetic data
+ctgan
+
+# Visualization / Frontend helpers
+plotly
+
+# Report generation
+reportlab
+
+# Utils
+requests
+pydantic[email]

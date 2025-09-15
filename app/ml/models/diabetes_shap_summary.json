@@ -1,0 +1,1746 @@
+{
+  "global_top_features": [
+    {
+      "feature": "HbA1c_level",
+      "mean_abs_shap": 2.7460780143737793
+    },
+    {
+      "feature": "blood_glucose_level",
+      "mean_abs_shap": 1.978479266166687
+    },
+    {
+      "feature": "age",
+      "mean_abs_shap": 0.5589829087257385
+    },
+    {
+      "feature": "bmi",
+      "mean_abs_shap": 0.24055813252925873
+    },
+    {
+      "feature": "smoking_history_No Info",
+      "mean_abs_shap": 0.1556752622127533
+    },
+    {
+      "feature": "gender_Male",
+      "mean_abs_shap": 0.10169198364019394
+    },
+    {
+      "feature": "hypertension",
+      "mean_abs_shap": 0.07680726051330566
+    },
+    {
+      "feature": "heart_disease",
+      "mean_abs_shap": 0.05134847015142441
+    },
+    {
+      "feature": "smoking_history_ever",
+      "mean_abs_shap": 0.005323536694049835
+    },
+    {
+      "feature": "smoking_history_current",
+      "mean_abs_shap": 0.00465631065890193
+    }
+  ],
+  "per_sample_top_features": [
+    {
+      "sample_index": 0,
+      "top3": [
+        {
+          "feature": "age",
+          "shap_value": -0.7267897129058838
+        },
+        {
+          "feature": "bmi",
+          "shap_value": -0.5057292580604553
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.34402889013290405
+        }
+      ]
+    },
+    {
+      "sample_index": 1,
+      "top3": [
+        {
+          "feature": "age",
+          "shap_value": -0.7637447118759155
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.34020623564720154
+        },
+        {
+          "feature": "bmi",
+          "shap_value": -0.1636486053466797
+        }
+      ]
+    },
+    {
+      "sample_index": 2,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -4.825222015380859
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -3.834418773651123
+        },
+        {
+          "feature": "bmi",
+          "shap_value": -0.13277405500411987
+        }
+      ]
+    },
+    {
+      "sample_index": 3,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -6.63291597366333
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.32979750633239746
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -0.15742570161819458
+        }
+      ]
+    },
+    {
+      "sample_index": 4,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -6.481738090515137
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.5776613354682922
+        },
+        {
+          "feature": "age",
+          "shap_value": 0.1906951516866684
+        }
+      ]
+    },
+    {
+      "sample_index": 5,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -4.676033973693848
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -3.6387856006622314
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.20668095350265503
+        }
+      ]
+    },
+    {
+      "sample_index": 6,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -6.009812355041504
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.5714261531829834
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.20234599709510803
+        }
+      ]
+    },
+    {
+      "sample_index": 7,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": 9.699772834777832
+        },
+        {
+          "feature": "bmi",
+          "shap_value": -0.9152669906616211
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": 0.07484720647335052
+        }
+      ]
+    },
+    {
+      "sample_index": 8,
+      "top3": [
+        {
+          "feature": "age",
+          "shap_value": 0.4198780059814453
+        },
+        {
+          "feature": "smoking_history_No Info",
+          "shap_value": -0.3218142092227936
+        },
+        {
+          "feature": "bmi",
+          "shap_value": 0.23673003911972046
+        }
+      ]
+    },
+    {
+      "sample_index": 9,
+      "top3": [
+        {
+          "feature": "bmi",
+          "shap_value": 0.9022892117500305
+        },
+        {
+          "feature": "age",
+          "shap_value": 0.8231586217880249
+        },
+        {
+          "feature": "heart_disease",
+          "shap_value": 0.47930410504341125
+        }
+      ]
+    },
+    {
+      "sample_index": 10,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -6.883505821228027
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.3446897566318512
+        },
+        {
+          "feature": "bmi",
+          "shap_value": 0.2631218135356903
+        }
+      ]
+    },
+    {
+      "sample_index": 11,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -5.565245151519775
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.7701154351234436
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.670346200466156
+        }
+      ]
+    },
+    {
+      "sample_index": 12,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -5.447642803192139
+        },
+        {
+          "feature": "age",
+          "shap_value": -1.4375027418136597
+        },
+        {
+          "feature": "bmi",
+          "shap_value": -0.5006604194641113
+        }
+      ]
+    },
+    {
+      "sample_index": 13,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -4.840436935424805
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -3.8325984477996826
+        },
+        {
+          "feature": "gender_Male",
+          "shap_value": 0.06634093075990677
+        }
+      ]
+    },
+    {
+      "sample_index": 14,
+      "top3": [
+        {
+          "feature": "age",
+          "shap_value": 0.19998709857463837
+        },
+        {
+          "feature": "gender_Male",
+          "shap_value": -0.1292005330324173
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": 0.12070094794034958
+        }
+      ]
+    },
+    {
+      "sample_index": 15,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -4.104913711547852
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -3.3242268562316895
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.9370735883712769
+        }
+      ]
+    },
+    {
+      "sample_index": 16,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": 5.867680072784424
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": 5.264120578765869
+        },
+        {
+          "feature": "age",
+          "shap_value": 0.09853808581829071
+        }
+      ]
+    },
+    {
+      "sample_index": 17,
+      "top3": [
+        {
+          "feature": "hypertension",
+          "shap_value": 0.9883333444595337
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.5543586611747742
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.21394069492816925
+        }
+      ]
+    },
+    {
+      "sample_index": 18,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -6.84202766418457
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -0.242295041680336
+        },
+        {
+          "feature": "bmi",
+          "shap_value": -0.22629305720329285
+        }
+      ]
+    },
+    {
+      "sample_index": 19,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -2.032013177871704
+        },
+        {
+          "feature": "age",
+          "shap_value": 0.4650384187698364
+        },
+        {
+          "feature": "hypertension",
+          "shap_value": 0.4631105959415436
+        }
+      ]
+    },
+    {
+      "sample_index": 20,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -5.325770378112793
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.7699602842330933
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.635557234287262
+        }
+      ]
+    },
+    {
+      "sample_index": 21,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -6.647074222564697
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.2951532304286957
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -0.18597179651260376
+        }
+      ]
+    },
+    {
+      "sample_index": 22,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -5.872825622558594
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.4847770929336548
+        },
+        {
+          "feature": "smoking_history_No Info",
+          "shap_value": -0.12030261009931564
+        }
+      ]
+    },
+    {
+      "sample_index": 23,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -5.733603477478027
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.6362517476081848
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.16672703623771667
+        }
+      ]
+    },
+    {
+      "sample_index": 24,
+      "top3": [
+        {
+          "feature": "age",
+          "shap_value": -0.6917017698287964
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.303204208612442
+        },
+        {
+          "feature": "gender_Male",
+          "shap_value": 0.16550655663013458
+        }
+      ]
+    },
+    {
+      "sample_index": 25,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -6.2645440101623535
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.7917477488517761
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -0.26961150765419006
+        }
+      ]
+    },
+    {
+      "sample_index": 26,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -6.911386489868164
+        },
+        {
+          "feature": "bmi",
+          "shap_value": -0.18143703043460846
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -0.16093777120113373
+        }
+      ]
+    },
+    {
+      "sample_index": 27,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -6.696956157684326
+        },
+        {
+          "feature": "smoking_history_No Info",
+          "shap_value": -0.1818934679031372
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -0.15920427441596985
+        }
+      ]
+    },
+    {
+      "sample_index": 28,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -6.396115779876709
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.8002334237098694
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -0.1919417679309845
+        }
+      ]
+    },
+    {
+      "sample_index": 29,
+      "top3": [
+        {
+          "feature": "bmi",
+          "shap_value": 0.5724899768829346
+        },
+        {
+          "feature": "gender_Male",
+          "shap_value": 0.21422336995601654
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": 0.127476766705513
+        }
+      ]
+    },
+    {
+      "sample_index": 30,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -6.858325004577637
+        },
+        {
+          "feature": "bmi",
+          "shap_value": -0.18684008717536926
+        },
+        {
+          "feature": "gender_Male",
+          "shap_value": 0.1764330118894577
+        }
+      ]
+    },
+    {
+      "sample_index": 31,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -4.791948318481445
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -3.8173084259033203
+        },
+        {
+          "feature": "age",
+          "shap_value": 0.12798404693603516
+        }
+      ]
+    },
+    {
+      "sample_index": 32,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -4.435610294342041
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -3.3416011333465576
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.4446942210197449
+        }
+      ]
+    },
+    {
+      "sample_index": 33,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -4.253745079040527
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -3.3965225219726562
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.8697888851165771
+        }
+      ]
+    },
+    {
+      "sample_index": 34,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -6.719018459320068
+        },
+        {
+          "feature": "smoking_history_No Info",
+          "shap_value": -0.20753467082977295
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -0.17044764757156372
+        }
+      ]
+    },
+    {
+      "sample_index": 35,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -4.843616485595703
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.8779734373092651
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.508188009262085
+        }
+      ]
+    },
+    {
+      "sample_index": 36,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -5.883736610412598
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.6049718856811523
+        },
+        {
+          "feature": "bmi",
+          "shap_value": -0.2774374485015869
+        }
+      ]
+    },
+    {
+      "sample_index": 37,
+      "top3": [
+        {
+          "feature": "age",
+          "shap_value": -0.8767122030258179
+        },
+        {
+          "feature": "bmi",
+          "shap_value": -0.6293330788612366
+        },
+        {
+          "feature": "gender_Male",
+          "shap_value": 0.1520816832780838
+        }
+      ]
+    },
+    {
+      "sample_index": 38,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -6.501865863800049
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.5745761394500732
+        },
+        {
+          "feature": "age",
+          "shap_value": 0.33231571316719055
+        }
+      ]
+    },
+    {
+      "sample_index": 39,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -6.9565863609313965
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -1.5146816968917847
+        },
+        {
+          "feature": "heart_disease",
+          "shap_value": 0.24180874228477478
+        }
+      ]
+    },
+    {
+      "sample_index": 40,
+      "top3": [
+        {
+          "feature": "age",
+          "shap_value": -2.67619252204895
+        },
+        {
+          "feature": "bmi",
+          "shap_value": -0.7598106861114502
+        },
+        {
+          "feature": "smoking_history_No Info",
+          "shap_value": -0.6320469975471497
+        }
+      ]
+    },
+    {
+      "sample_index": 41,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -6.420543670654297
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.2742253839969635
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -0.22964315116405487
+        }
+      ]
+    },
+    {
+      "sample_index": 42,
+      "top3": [
+        {
+          "feature": "age",
+          "shap_value": -0.5419343709945679
+        },
+        {
+          "feature": "bmi",
+          "shap_value": -0.4698646366596222
+        },
+        {
+          "feature": "smoking_history_No Info",
+          "shap_value": -0.3174433708190918
+        }
+      ]
+    },
+    {
+      "sample_index": 43,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": 9.440751075744629
+        },
+        {
+          "feature": "age",
+          "shap_value": 0.36774662137031555
+        },
+        {
+          "feature": "hypertension",
+          "shap_value": 0.26202449202537537
+        }
+      ]
+    },
+    {
+      "sample_index": 44,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -5.8225226402282715
+        },
+        {
+          "feature": "age",
+          "shap_value": -1.2038257122039795
+        },
+        {
+          "feature": "smoking_history_No Info",
+          "shap_value": -0.30965307354927063
+        }
+      ]
+    },
+    {
+      "sample_index": 45,
+      "top3": [
+        {
+          "feature": "age",
+          "shap_value": -2.29138445854187
+        },
+        {
+          "feature": "smoking_history_No Info",
+          "shap_value": -0.6075060963630676
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.4693204462528229
+        }
+      ]
+    },
+    {
+      "sample_index": 46,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -7.36228609085083
+        },
+        {
+          "feature": "hypertension",
+          "shap_value": 0.2456916868686676
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -0.14059597253799438
+        }
+      ]
+    },
+    {
+      "sample_index": 47,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -5.508772850036621
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.6142842173576355
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.20354412496089935
+        }
+      ]
+    },
+    {
+      "sample_index": 48,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -4.7918314933776855
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -3.7458760738372803
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.3373129963874817
+        }
+      ]
+    },
+    {
+      "sample_index": 49,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -6.648186206817627
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.3149508237838745
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -0.18282310664653778
+        }
+      ]
+    },
+    {
+      "sample_index": 50,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -4.867641448974609
+        },
+        {
+          "feature": "age",
+          "shap_value": -1.36557936668396
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.6672404408454895
+        }
+      ]
+    },
+    {
+      "sample_index": 51,
+      "top3": [
+        {
+          "feature": "bmi",
+          "shap_value": -0.5021940469741821
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.4555363059043884
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.32715845108032227
+        }
+      ]
+    },
+    {
+      "sample_index": 52,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -6.509366512298584
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -0.2752792537212372
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.22161933779716492
+        }
+      ]
+    },
+    {
+      "sample_index": 53,
+      "top3": [
+        {
+          "feature": "hypertension",
+          "shap_value": 0.630713164806366
+        },
+        {
+          "feature": "smoking_history_No Info",
+          "shap_value": -0.3270858824253082
+        },
+        {
+          "feature": "age",
+          "shap_value": 0.1120787113904953
+        }
+      ]
+    },
+    {
+      "sample_index": 54,
+      "top3": [
+        {
+          "feature": "age",
+          "shap_value": -0.7307385206222534
+        },
+        {
+          "feature": "bmi",
+          "shap_value": 0.6467074751853943
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.19310148060321808
+        }
+      ]
+    },
+    {
+      "sample_index": 55,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -4.935093879699707
+        },
+        {
+          "feature": "age",
+          "shap_value": -1.2263036966323853
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.4622932970523834
+        }
+      ]
+    },
+    {
+      "sample_index": 56,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -2.117417097091675
+        },
+        {
+          "feature": "bmi",
+          "shap_value": 0.624640166759491
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.5977659225463867
+        }
+      ]
+    },
+    {
+      "sample_index": 57,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -5.1236162185668945
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.8151453137397766
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.6642882227897644
+        }
+      ]
+    },
+    {
+      "sample_index": 58,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -6.741791725158691
+        },
+        {
+          "feature": "smoking_history_No Info",
+          "shap_value": -0.20373456180095673
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -0.18077297508716583
+        }
+      ]
+    },
+    {
+      "sample_index": 59,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -6.285001277923584
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.6504679322242737
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -0.23801244795322418
+        }
+      ]
+    },
+    {
+      "sample_index": 60,
+      "top3": [
+        {
+          "feature": "age",
+          "shap_value": -1.7187989950180054
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.49277815222740173
+        },
+        {
+          "feature": "smoking_history_No Info",
+          "shap_value": -0.47129684686660767
+        }
+      ]
+    },
+    {
+      "sample_index": 61,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -5.580556869506836
+        },
+        {
+          "feature": "age",
+          "shap_value": -1.1828796863555908
+        },
+        {
+          "feature": "bmi",
+          "shap_value": -0.48708802461624146
+        }
+      ]
+    },
+    {
+      "sample_index": 62,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -6.976941108703613
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -0.16299328207969666
+        },
+        {
+          "feature": "age",
+          "shap_value": 0.12533073127269745
+        }
+      ]
+    },
+    {
+      "sample_index": 63,
+      "top3": [
+        {
+          "feature": "age",
+          "shap_value": -1.9268302917480469
+        },
+        {
+          "feature": "smoking_history_No Info",
+          "shap_value": -0.47443413734436035
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.40402692556381226
+        }
+      ]
+    },
+    {
+      "sample_index": 64,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -4.751163482666016
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -3.7250919342041016
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.11299274116754532
+        }
+      ]
+    },
+    {
+      "sample_index": 65,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -5.366533279418945
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.7275127172470093
+        },
+        {
+          "feature": "bmi",
+          "shap_value": -0.6520700454711914
+        }
+      ]
+    },
+    {
+      "sample_index": 66,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -4.926502704620361
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -3.9731974601745605
+        },
+        {
+          "feature": "hypertension",
+          "shap_value": 0.1928257942199707
+        }
+      ]
+    },
+    {
+      "sample_index": 67,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -4.948066711425781
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -3.969513416290283
+        },
+        {
+          "feature": "age",
+          "shap_value": 0.2084936946630478
+        }
+      ]
+    },
+    {
+      "sample_index": 68,
+      "top3": [
+        {
+          "feature": "age",
+          "shap_value": 0.6820132732391357
+        },
+        {
+          "feature": "hypertension",
+          "shap_value": 0.48129987716674805
+        },
+        {
+          "feature": "bmi",
+          "shap_value": 0.399929404258728
+        }
+      ]
+    },
+    {
+      "sample_index": 69,
+      "top3": [
+        {
+          "feature": "age",
+          "shap_value": -1.6958715915679932
+        },
+        {
+          "feature": "smoking_history_No Info",
+          "shap_value": -0.47991886734962463
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.45300763845443726
+        }
+      ]
+    },
+    {
+      "sample_index": 70,
+      "top3": [
+        {
+          "feature": "age",
+          "shap_value": -0.6823879480361938
+        },
+        {
+          "feature": "bmi",
+          "shap_value": -0.6243836879730225
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.30925798416137695
+        }
+      ]
+    },
+    {
+      "sample_index": 71,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -7.394968509674072
+        },
+        {
+          "feature": "heart_disease",
+          "shap_value": 0.2984214723110199
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -0.140484020113945
+        }
+      ]
+    },
+    {
+      "sample_index": 72,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -4.062098979949951
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -3.13276743888855
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.9319846630096436
+        }
+      ]
+    },
+    {
+      "sample_index": 73,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -5.555172443389893
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.6308692693710327
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.2139284312725067
+        }
+      ]
+    },
+    {
+      "sample_index": 74,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -7.053335666656494
+        },
+        {
+          "feature": "bmi",
+          "shap_value": -0.5582854747772217
+        },
+        {
+          "feature": "age",
+          "shap_value": 0.4045867621898651
+        }
+      ]
+    },
+    {
+      "sample_index": 75,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -4.331860065460205
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -3.3613712787628174
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.7247228622436523
+        }
+      ]
+    },
+    {
+      "sample_index": 76,
+      "top3": [
+        {
+          "feature": "age",
+          "shap_value": -2.1456568241119385
+        },
+        {
+          "feature": "bmi",
+          "shap_value": -0.8257995843887329
+        },
+        {
+          "feature": "smoking_history_No Info",
+          "shap_value": -0.62632155418396
+        }
+      ]
+    },
+    {
+      "sample_index": 77,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -5.465217113494873
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.6740096807479858
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.6604475378990173
+        }
+      ]
+    },
+    {
+      "sample_index": 78,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -6.3148016929626465
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.5994380712509155
+        },
+        {
+          "feature": "bmi",
+          "shap_value": -0.23240724205970764
+        }
+      ]
+    },
+    {
+      "sample_index": 79,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -5.561032295227051
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.5368617177009583
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.49793317914009094
+        }
+      ]
+    },
+    {
+      "sample_index": 80,
+      "top3": [
+        {
+          "feature": "age",
+          "shap_value": -1.9951531887054443
+        },
+        {
+          "feature": "bmi",
+          "shap_value": -0.7029268145561218
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.5782737731933594
+        }
+      ]
+    },
+    {
+      "sample_index": 81,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -4.778675079345703
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -3.8168938159942627
+        },
+        {
+          "feature": "gender_Male",
+          "shap_value": -0.052933719009160995
+        }
+      ]
+    },
+    {
+      "sample_index": 82,
+      "top3": [
+        {
+          "feature": "age",
+          "shap_value": -1.413304328918457
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.4723183512687683
+        },
+        {
+          "feature": "gender_Male",
+          "shap_value": 0.2558095157146454
+        }
+      ]
+    },
+    {
+      "sample_index": 83,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -7.363780975341797
+        },
+        {
+          "feature": "bmi",
+          "shap_value": 0.2473633587360382
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -0.13549673557281494
+        }
+      ]
+    },
+    {
+      "sample_index": 84,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -6.01823091506958
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.575542688369751
+        },
+        {
+          "feature": "gender_Male",
+          "shap_value": -0.08391652256250381
+        }
+      ]
+    },
+    {
+      "sample_index": 85,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -6.289848804473877
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.616599440574646
+        },
+        {
+          "feature": "smoking_history_No Info",
+          "shap_value": -0.2729666531085968
+        }
+      ]
+    },
+    {
+      "sample_index": 86,
+      "top3": [
+        {
+          "feature": "age",
+          "shap_value": 0.6990262866020203
+        },
+        {
+          "feature": "heart_disease",
+          "shap_value": 0.6301424503326416
+        },
+        {
+          "feature": "bmi",
+          "shap_value": -0.17688384652137756
+        }
+      ]
+    },
+    {
+      "sample_index": 87,
+      "top3": [
+        {
+          "feature": "age",
+          "shap_value": -1.1572210788726807
+        },
+        {
+          "feature": "bmi",
+          "shap_value": -0.5632726550102234
+        },
+        {
+          "feature": "smoking_history_No Info",
+          "shap_value": -0.41226378083229065
+        }
+      ]
+    },
+    {
+      "sample_index": 88,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -6.481956481933594
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.5907953977584839
+        },
+        {
+          "feature": "age",
+          "shap_value": 0.30966001749038696
+        }
+      ]
+    },
+    {
+      "sample_index": 89,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -4.758110523223877
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -3.7714107036590576
+        },
+        {
+          "feature": "bmi",
+          "shap_value": -0.17044368386268616
+        }
+      ]
+    },
+    {
+      "sample_index": 90,
+      "top3": [
+        {
+          "feature": "age",
+          "shap_value": 0.38343966007232666
+        },
+        {
+          "feature": "gender_Male",
+          "shap_value": 0.19328700006008148
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": 0.12064430117607117
+        }
+      ]
+    },
+    {
+      "sample_index": 91,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -4.861149311065674
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -3.814483880996704
+        },
+        {
+          "feature": "bmi",
+          "shap_value": 0.17794926464557648
+        }
+      ]
+    },
+    {
+      "sample_index": 92,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -6.1070637702941895
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.40222427248954773
+        },
+        {
+          "feature": "age",
+          "shap_value": 0.35413578152656555
+        }
+      ]
+    },
+    {
+      "sample_index": 93,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -6.3959150314331055
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.4562579393386841
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -0.18092618882656097
+        }
+      ]
+    },
+    {
+      "sample_index": 94,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -4.618428707122803
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -3.5491504669189453
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.38643330335617065
+        }
+      ]
+    },
+    {
+      "sample_index": 95,
+      "top3": [
+        {
+          "feature": "age",
+          "shap_value": -1.4358495473861694
+        },
+        {
+          "feature": "smoking_history_No Info",
+          "shap_value": -0.5499358773231506
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.46303871273994446
+        }
+      ]
+    },
+    {
+      "sample_index": 96,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -4.623893737792969
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -3.5429108142852783
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.38833358883857727
+        }
+      ]
+    },
+    {
+      "sample_index": 97,
+      "top3": [
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -6.156894207000732
+        },
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -0.5508873462677002
+        },
+        {
+          "feature": "gender_Male",
+          "shap_value": 0.10442318022251129
+        }
+      ]
+    },
+    {
+      "sample_index": 98,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -6.914052486419678
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.17566800117492676
+        },
+        {
+          "feature": "blood_glucose_level",
+          "shap_value": -0.173898383975029
+        }
+      ]
+    },
+    {
+      "sample_index": 99,
+      "top3": [
+        {
+          "feature": "HbA1c_level",
+          "shap_value": -6.296794891357422
+        },
+        {
+          "feature": "age",
+          "shap_value": -0.4642156958580017
+        },
+        {
+          "feature": "smoking_history_No Info",
+          "shap_value": -0.2466011345386505
+        }
+      ]
+    }
+  ]
+}

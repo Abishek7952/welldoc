@@ -1,0 +1,53 @@
+{
+  "meta_learner_weights": {
+    "logistic_base_model_weight": 4.8356415822754935,
+    "lstm_base_model_weight": 2.118446469064542
+  },
+  "logistic_base_model_features": {
+    "top_features": [
+      {
+        "feature": "std_gluc",
+        "coefficient": 1.655588151431353
+      },
+      {
+        "feature": "samp_entropy",
+        "coefficient": 1.3269191107252236
+      },
+      {
+        "feature": "cov",
+        "coefficient": 1.1736514961943474
+      },
+      {
+        "feature": "kurtosis",
+        "coefficient": -0.7827647871372052
+      },
+      {
+        "feature": "mean_gluc_weak",
+        "coefficient": 0.6319654632245841
+      },
+      {
+        "feature": "skew",
+        "coefficient": 0.6063285417929656
+      },
+      {
+        "feature": "median_rise",
+        "coefficient": 0.543418186385075
+      },
+      {
+        "feature": "iqr",
+        "coefficient": -0.4179145548753096
+      },
+      {
+        "feature": "pct_above_140",
+        "coefficient": 0.4161427018330096
+      },
+      {
+        "feature": "short_spikes",
+        "coefficient": -0.18592467291157994
+      }
+    ]
+  },
+  "lstm_base_model_shap": {
+    "error": "in user code:\n\n    File \"d:\\welldoc_coach\\venv\\Lib\\site-packages\\shap\\explainers\\_deep\\deep_tf.py\", line 265, in grad_graph  *\n        x_grad = tape.gradient(out, shap_rAnD)\n\n    LookupError: gradient registry has no entry for: shap_TensorListStack\n"
+  }
+}
