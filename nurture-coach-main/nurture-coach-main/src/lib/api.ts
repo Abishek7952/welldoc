@@ -150,6 +150,20 @@ class ApiService {
 
     return response.json();
   }
+
+  async getUserHealthSummary(): Promise<any> {
+    const response = await fetch(`${API_BASE_URL}/user/health-summary`, {
+      method: 'GET',
+      headers: this.getAuthHeaders(),
+    });
+
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error.detail || 'Failed to fetch health summary');
+    }
+
+    return response.json();
+  }
 }
 
 export const apiService = new ApiService();
@@ -168,6 +182,13 @@ export const authUtils = {
     localStorage.removeItem('access_token');
     localStorage.removeItem('userType');
     localStorage.removeItem('isAuthenticated');
+  },
+
+  logout: () => {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('userType');
+    localStorage.removeItem('isAuthenticated');
+    localStorage.removeItem('newUser');
   },
 
   isAuthenticated: (): boolean => {

@@ -18,6 +18,7 @@ import {
   Activity
 } from "lucide-react";
 import ClinicianPatientList from "@/components/clinician/PatientList";
+import { authUtils } from "@/lib/api";
 import PatientTrends from "@/components/clinician/PatientTrends";
 import ShapClinicalView from "@/components/clinician/ShapClinicalView";
 import RedFlags from "@/components/clinician/RedFlags";
@@ -160,11 +161,11 @@ const ClinicianDashboard = () => {
             <Button variant="ghost" onClick={() => navigate("/profile")}>
               Profile
             </Button>
-            <Button 
-              variant="ghost" 
+            <Button
+              variant="ghost"
               onClick={() => {
-                localStorage.removeItem("isAuthenticated");
-                navigate("/");
+                authUtils.logout();
+                navigate("/login");
               }}
             >
               Sign Out

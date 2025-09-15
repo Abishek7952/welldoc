@@ -161,7 +161,12 @@ SECRET_KEY = secrets.token_urlsafe(32)  # In production, use environment variabl
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+# Fix bcrypt compatibility issues
+pwd_context = CryptContext(
+    schemes=["bcrypt"],
+    deprecated="auto",
+    bcrypt__rounds=12
+)
 security = HTTPBearer()
 
 # --- 1.5. Cohere AI Configuration ---
@@ -183,7 +188,14 @@ app = FastAPI(
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],  # Vite dev server
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "http://localhost:8080",
+        "http://127.0.0.1:8080",
+        "http://localhost:3000",
+        "http://127.0.0.1:3000"
+    ],  # Support multiple dev server ports
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -226,9 +238,9 @@ def get_password_hash(password):
 def create_access_token(data: dict, expires_delta: Optional[datetime.timedelta] = None):
     to_encode = data.copy()
     if expires_delta:
-        expire = datetime.datetime.utcnow() + expires_delta
+        expire = datetime.datetime.now(datetime.timezone.utc) + expires_delta
     else:
-        expire = datetime.datetime.utcnow() + datetime.timedelta(minutes=15)
+        expire = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(minutes=15)
     to_encode.update({"exp": expire})
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return encoded_jwt
@@ -333,6 +345,118 @@ async def test_ai():
         }
     except Exception as e:
         return {"error": f"AI test failed: {str(e)}"}
+
+@app.get("/user/health-summary", tags=["Health Data"])
+async def get_user_health_summary(current_user: User = Depends(get_current_user)):
+    """Get user's latest health assessment data for dashboard display"""
+    try:
+        with engine.connect() as connection:
+            # Get the latest health assessment for the current user
+            latest_assessment_query = text("""
+                SELECT
+                    id, patient_id, assessment_date,
+                    age, gender, bmi,
+                    diabetes_risk_probability, diabetes_risk_label,
+                    hypertension_risk, heart_disease_risk,
+                    hba1c_level, blood_glucose_level, systolic_bp, diastolic_bp,
+                    exercise_frequency, sleep_hours, stress_level
+                FROM health_assessments
+                WHERE patient_id = :user_id
+                ORDER BY assessment_date DESC
+                LIMIT 1
+            """)
+
+            result = connection.execute(latest_assessment_query, {"user_id": current_user.id})
+            latest_assessment = result.fetchone()
+
+            if not latest_assessment:
+                return {
+                    "has_data": False,
+                    "message": "No health assessments found. Please complete your first health assessment."
+                }
+
+            # Get trend data (compare with previous assessment)
+            trend_query = text("""
+                SELECT
+                    diabetes_risk_probability, hypertension_risk, heart_disease_risk,
+                    assessment_date
+                FROM health_assessments
+                WHERE patient_id = :user_id
+                ORDER BY assessment_date DESC
+                LIMIT 2
+            """)
+
+            trend_results = connection.execute(trend_query, {"user_id": current_user.id}).fetchall()
+
+            # Calculate trends
+            diabetes_trend = "stable"
+            hypertension_trend = "stable"
+
+            if len(trend_results) >= 2:
+                current_diabetes = float(trend_results[0][0] or 0)
+                previous_diabetes = float(trend_results[1][0] or 0)
+                current_hypertension = float(trend_results[0][1] or 0)
+                previous_hypertension = float(trend_results[1][1] or 0)
+
+                # Calculate diabetes trend
+                if current_diabetes < previous_diabetes - 0.05:
+                    diabetes_trend = "improving"
+                elif current_diabetes > previous_diabetes + 0.05:
+                    diabetes_trend = "worsening"
+
+                # Calculate hypertension trend
+                if current_hypertension < previous_hypertension - 0.05:
+                    hypertension_trend = "improving"
+                elif current_hypertension > previous_hypertension + 0.05:
+                    hypertension_trend = "worsening"
+
+            # Determine risk levels
+            diabetes_percentage = int((latest_assessment[6] or 0) * 100)
+            hypertension_percentage = int((latest_assessment[7] or 0) * 100)
+
+            diabetes_level = "high" if diabetes_percentage >= 60 else "medium" if diabetes_percentage >= 30 else "low"
+            hypertension_level = "high" if hypertension_percentage >= 60 else "medium" if hypertension_percentage >= 30 else "low"
+
+            return {
+                "has_data": True,
+                "user": {
+                    "name": current_user.email.split('@')[0].title(),
+                    "age": latest_assessment[3] or 0,
+                    "points": 1250,  # TODO: Implement actual points system
+                    "streak": 7,     # TODO: Implement actual streak calculation
+                    "level": "Health Enthusiast"  # TODO: Implement level system
+                },
+                "risks": {
+                    "diabetes": {
+                        "level": diabetes_level,
+                        "percentage": diabetes_percentage,
+                        "trend": diabetes_trend
+                    },
+                    "hypertension": {
+                        "level": hypertension_level,
+                        "percentage": hypertension_percentage,
+                        "trend": hypertension_trend
+                    }
+                },
+                "latest_assessment": {
+                    "id": latest_assessment[0],
+                    "date": latest_assessment[2].isoformat() if latest_assessment[2] else None,
+                    "bmi": float(latest_assessment[5]) if latest_assessment[5] else None,
+                    "hba1c": float(latest_assessment[10]) if latest_assessment[10] else None,
+                    "blood_glucose": float(latest_assessment[11]) if latest_assessment[11] else None,
+                    "blood_pressure": f"{latest_assessment[12] or 0}/{latest_assessment[13] or 0}",
+                    "exercise_frequency": latest_assessment[14],
+                    "sleep_hours": float(latest_assessment[15]) if latest_assessment[15] else None,
+                    "stress_level": latest_assessment[16]
+                }
+            }
+
+    except Exception as e:
+        print(f"Error fetching user health summary: {e}")
+        return {
+            "has_data": False,
+            "error": f"Failed to fetch health data: {str(e)}"
+        }
 
 @app.post("/register", response_model=Token, tags=["Authentication"])
 async def register_user(user: UserRegister):

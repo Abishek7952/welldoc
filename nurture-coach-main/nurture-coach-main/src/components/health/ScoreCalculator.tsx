@@ -12,9 +12,10 @@ import { Calculator, TrendingUp, AlertCircle } from "lucide-react";
 
 interface ScoreCalculatorProps {
   ageGroup: "child" | "adult" | "senior";
+  onScoreUpdate?: () => void;
 }
 
-const ScoreCalculator = ({ ageGroup }: ScoreCalculatorProps) => {
+const ScoreCalculator = ({ ageGroup, onScoreUpdate }: ScoreCalculatorProps) => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [scoreResult, setScoreResult] = useState<ScoreResponse | null>(null);
@@ -166,11 +167,16 @@ const ScoreCalculator = ({ ageGroup }: ScoreCalculatorProps) => {
 
       const result = await apiService.getScore(scoreRequest);
       setScoreResult(result);
-      
+
       toast({
         title: "Score calculated successfully!",
         description: "Your health risk assessment has been updated.",
       });
+
+      // Trigger dashboard refresh
+      if (onScoreUpdate) {
+        onScoreUpdate();
+      }
     } catch (error) {
       toast({
         title: "Score calculation failed",

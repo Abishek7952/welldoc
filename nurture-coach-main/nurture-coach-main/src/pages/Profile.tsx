@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useNavigate } from "react-router-dom";
 import { Heart, Edit, Save, User, Info } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { authUtils } from "@/lib/api";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -112,11 +113,11 @@ const Profile = () => {
             <Heart className="h-8 w-8 text-primary" />
             <span className="text-2xl font-bold text-foreground">AI Health Coach</span>
           </div>
-          <Button 
-            variant="ghost" 
+          <Button
+            variant="ghost"
             onClick={() => {
-              localStorage.removeItem("isAuthenticated");
-              navigate("/");
+              authUtils.logout();
+              navigate("/login");
             }}
           >
             Sign Out

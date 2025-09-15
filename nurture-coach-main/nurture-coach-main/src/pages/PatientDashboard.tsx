@@ -17,53 +17,163 @@ import {
   Star,
   Award,
   Phone,
-  UserPlus
+  UserPlus,
+  RefreshCw,
+  LogOut
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import RiskCard from "@/components/health/RiskCard";
 import ShapExplanation from "@/components/health/ShapExplanation";
 import DigitalTwin from "@/components/health/DigitalTwin";
 import VoiceAssistant from "@/components/health/VoiceAssistant";
 import HealthChart from "@/components/health/HealthChart";
 import ScoreCalculator from "@/components/health/ScoreCalculator";
-import { authUtils } from "@/lib/api";
+import { authUtils, apiService } from "@/lib/api";
 
-// Sample health data
-const healthData = {
-  user: { name: "Alex", age: 34, points: 1250, streak: 7, level: "Health Enthusiast" },
+// Default/fallback health data
+const defaultHealthData = {
+  user: { name: "User", age: 34, points: 0, streak: 0, level: "Getting Started" },
   risks: {
-    diabetes: { level: "medium" as const, percentage: 65, trend: "improving" as const },
-    hypertension: { level: "low" as const, percentage: 25, trend: "stable" as const }
+    diabetes: { level: "medium" as const, percentage: 65, trend: "stable" as const },
+    hypertension: { level: "low" as const, percentage: 25, trend: "improving" as const }
   },
   shapDrivers: [
-    { name: "Physical Activity", impact: 0.3, positive: true, description: "Regular exercise significantly reduces your risk" },
-    { name: "BMI", impact: -0.4, positive: false, description: "Higher BMI increases diabetes risk" },
-    { name: "Family History", impact: -0.2, positive: false, description: "Genetic predisposition affects your baseline risk" }
+    { name: "BMI", impact: -0.3, positive: false, description: "Current BMI: 28.5 (Overweight)" },
+    { name: "Blood Glucose", impact: -0.25, positive: false, description: "Fasting glucose: 140 mg/dL (Elevated)" },
+    { name: "Physical Activity", impact: 0.15, positive: true, description: "Regular exercise routine" },
+    { name: "Age Factor", impact: -0.1, positive: false, description: "Age-related risk increase" },
+    { name: "Family History", impact: -0.2, positive: false, description: "Diabetes in family history" }
   ],
   microGoals: [
-    { name: "Daily Steps", current: 8500, target: 10000, unit: "steps" },
-    { name: "Sleep", current: 7.2, target: 8, unit: "hours" },
-    { name: "Water Intake", current: 6, target: 8, unit: "glasses" }
+    { name: "Daily Steps", current: 0, target: 10000, unit: "steps" },
+    { name: "Sleep", current: 0, target: 8, unit: "hours" },
+    { name: "Water Intake", current: 0, target: 8, unit: "glasses" }
   ],
   badges: [
-    { name: "7-Day Streak", icon: "🔥", earned: true, date: "2024-01-15" },
-    { name: "Exercise Champion", icon: "💪", earned: true, date: "2024-01-10" },
-    { name: "Hydration Master", icon: "💧", earned: false, progress: 75 }
+    { name: "First Assessment", icon: "🎯", earned: false, progress: 0 },
+    { name: "Health Explorer", icon: "🔍", earned: false, progress: 0 },
+    { name: "Wellness Warrior", icon: "⚡", earned: false, progress: 0 }
   ],
-  alerts: [
-    { 
-      type: "high", 
-      message: "Blood pressure reading above normal range", 
-      action: "Contact your doctor",
-      time: "2 hours ago"
-    }
-  ]
+  alerts: []
 };
 
 const PatientDashboard = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [ageGroup, setAgeGroup] = useState<"child" | "adult" | "senior">("adult");
+  const [healthData, setHealthData] = useState(defaultHealthData);
+  const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
+  const [hasRealData, setHasRealData] = useState(false);
+
+  const fetchHealthData = async (showRefreshToast = false) => {
+    try {
+      if (showRefreshToast) setRefreshing(true);
+
+      const data = await apiService.getUserHealthSummary();
+
+      if (data.has_data) {
+        setHealthData({
+          user: data.user,
+          risks: data.risks,
+          shapDrivers: [
+            {
+              name: "BMI",
+              impact: data.latest_assessment.bmi > 25 ? -0.3 : 0.2,
+              positive: data.latest_assessment.bmi <= 25,
+              description: `Current BMI: ${data.latest_assessment.bmi?.toFixed(1) || 'N/A'} ${data.latest_assessment.bmi > 25 ? '(Overweight)' : '(Normal)'}`
+            },
+            {
+              name: "Blood Glucose",
+              impact: data.latest_assessment.blood_glucose > 126 ? -0.25 : 0.15,
+              positive: data.latest_assessment.blood_glucose <= 126,
+              description: `Fasting glucose: ${data.latest_assessment.blood_glucose} mg/dL ${data.latest_assessment.blood_glucose > 126 ? '(Elevated)' : '(Normal)'}`
+            },
+            {
+              name: "HbA1c Level",
+              impact: data.latest_assessment.hba1c > 6.5 ? -0.2 : 0.1,
+              positive: data.latest_assessment.hba1c <= 6.5,
+              description: `HbA1c: ${data.latest_assessment.hba1c}% ${data.latest_assessment.hba1c > 6.5 ? '(High)' : '(Normal)'}`
+            },
+            {
+              name: "Age Factor",
+              impact: data.user.age > 45 ? -0.1 : 0.05,
+              positive: data.user.age <= 45,
+              description: `Age: ${data.user.age} years ${data.user.age > 45 ? '(Increased risk)' : '(Lower risk)'}`
+            },
+            {
+              name: "Physical Activity",
+              impact: data.latest_assessment.exercise_frequency === 'daily' ? 0.15 : data.latest_assessment.exercise_frequency === 'weekly' ? 0.05 : -0.1,
+              positive: data.latest_assessment.exercise_frequency !== 'rarely',
+              description: `Exercise: ${data.latest_assessment.exercise_frequency || 'Not specified'}`
+            }
+          ],
+          microGoals: [
+            { name: "Daily Steps", current: 8500, target: 10000, unit: "steps" },
+            { name: "Sleep", current: data.latest_assessment.sleep_hours || 7, target: 8, unit: "hours" },
+            { name: "Exercise", current: data.latest_assessment.exercise_frequency === 'daily' ? 7 : data.latest_assessment.exercise_frequency === 'weekly' ? 3 : 1, target: 5, unit: "days/week" }
+          ],
+          badges: [
+            { name: "Health Assessment", icon: "🎯", earned: true, date: data.latest_assessment.date },
+            { name: "Data Tracker", icon: "📊", earned: true, date: data.latest_assessment.date },
+            { name: "Wellness Warrior", icon: "⚡", earned: data.risks.diabetes.level === "low" && data.risks.hypertension.level === "low", progress: 100 }
+          ],
+          alerts: data.risks.diabetes.level === "high" || data.risks.hypertension.level === "high" ? [
+            {
+              type: "high",
+              message: "High health risk detected",
+              action: "Please consult your healthcare provider",
+              time: "Recent assessment"
+            }
+          ] : []
+        });
+        setHasRealData(true);
+
+        if (showRefreshToast) {
+          toast({
+            title: "Data refreshed",
+            description: "Your health data has been updated.",
+          });
+        }
+      } else {
+        setHealthData(defaultHealthData);
+        setHasRealData(false);
+
+        if (data.error) {
+          toast({
+            title: "Error loading health data",
+            description: data.error,
+            variant: "destructive"
+          });
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching health data:', error);
+      setHealthData(defaultHealthData);
+      setHasRealData(false);
+
+      toast({
+        title: "Failed to load health data",
+        description: "Please try refreshing the page or complete a health assessment.",
+        variant: "destructive"
+      });
+    } finally {
+      setLoading(false);
+      if (showRefreshToast) setRefreshing(false);
+    }
+  };
+
+  const handleLogout = () => {
+    authUtils.logout();
+    toast({
+      title: "Logged out successfully",
+      description: "You have been logged out of your account.",
+    });
+    navigate('/login');
+  };
+
+  const handleRefresh = () => {
+    fetchHealthData(true);
+  };
 
   useEffect(() => {
     // Determine age group for adaptive UI
@@ -75,6 +185,9 @@ const PatientDashboard = () => {
       else if (ageNum >= 65) setAgeGroup("senior");
       else setAgeGroup("adult");
     }
+
+    // Fetch initial health data
+    fetchHealthData();
   }, []);
 
   const getGreeting = () => {
@@ -114,16 +227,20 @@ const PatientDashboard = () => {
               <Trophy className="h-4 w-4 mr-1" />
               {healthData.user.points} pts
             </Badge>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleRefresh}
+              disabled={refreshing}
+            >
+              <RefreshCw className={`h-4 w-4 mr-2 ${refreshing ? 'animate-spin' : ''}`} />
+              {refreshing ? 'Refreshing...' : 'Refresh'}
+            </Button>
             <Button variant="ghost" onClick={() => navigate("/profile")}>
               Profile
             </Button>
-            <Button
-              variant="ghost"
-              onClick={() => {
-                authUtils.removeToken();
-                navigate("/");
-              }}
-            >
+            <Button variant="ghost" onClick={handleLogout}>
+              <LogOut className="h-4 w-4 mr-2" />
               Sign Out
             </Button>
           </div>
@@ -146,6 +263,55 @@ const PatientDashboard = () => {
             </div>
           </div>
         </div>
+
+        {/* No Data Banner */}
+        {!hasRealData && !loading && (
+          <div className="mb-6">
+            <Card className="border-primary bg-primary/5">
+              <CardContent className="p-6">
+                <div className="text-center">
+                  <div className="mb-4">
+                    <div className="h-16 w-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Target className="h-8 w-8 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold text-primary mb-2">
+                      Complete Your First Health Assessment
+                    </h3>
+                    <p className="text-muted-foreground mb-4">
+                      Get personalized health insights and AI-powered recommendations by completing your comprehensive health assessment.
+                    </p>
+                    <Button
+                      onClick={() => {
+                        const calculatorElement = document.getElementById('score-calculator');
+                        if (calculatorElement) {
+                          calculatorElement.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }}
+                      className="bg-primary hover:bg-primary/90"
+                    >
+                      <Activity className="h-4 w-4 mr-2" />
+                      Start Health Assessment
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        )}
+
+        {/* Loading State */}
+        {loading && (
+          <div className="mb-6">
+            <Card>
+              <CardContent className="p-6">
+                <div className="text-center">
+                  <RefreshCw className="h-8 w-8 animate-spin mx-auto mb-4 text-primary" />
+                  <p className="text-muted-foreground">Loading your health data...</p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        )}
 
         {/* Emergency Alerts */}
         {healthData.alerts.length > 0 && (
@@ -180,22 +346,8 @@ const PatientDashboard = () => {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Left Column - Risk Assessment */}
           <div className="lg:col-span-2 space-y-6">
-            {/* Risk Cards */}
-            <div className="grid md:grid-cols-2 gap-4">
-              <RiskCard 
-                title="Type 2 Diabetes Risk"
-                risk={healthData.risks.diabetes}
-                ageGroup={ageGroup}
-              />
-              <RiskCard 
-                title="Hypertension Risk"
-                risk={healthData.risks.hypertension}
-                ageGroup={ageGroup}
-              />
-            </div>
-
             {/* SHAP Explanation */}
-            <ShapExplanation 
+            <ShapExplanation
               drivers={healthData.shapDrivers}
               ageGroup={ageGroup}
             />
@@ -204,7 +356,9 @@ const PatientDashboard = () => {
             <DigitalTwin ageGroup={ageGroup} />
 
             {/* Score Calculator */}
-            <ScoreCalculator ageGroup={ageGroup} />
+            <div id="score-calculator">
+              <ScoreCalculator ageGroup={ageGroup} onScoreUpdate={fetchHealthData} />
+            </div>
 
             {/* Health Charts */}
             <Card className="health-card">
